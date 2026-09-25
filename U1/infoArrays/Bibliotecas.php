@@ -111,14 +111,20 @@ if (isset($biblioteca["Poesía"][0]["ejemplares"])) {
 //    título de cada libro, con el formato:
 //    "Ciencia Ficción -> Fundación"
 foreach($biblioteca as $key => $valor){
-    foreach($valor as $titulo){
-        echo $titulo["titulo"]."<br>";
+    foreach($valor as $keys2){
+        echo "$key" ."-->".$keys2["titulo"]."<br>";
     }
 }
 
 // 9) Recorre todo el array y muestra únicamente los libros publicados
 //    ANTES del año 1980, junto con su categoría.
-
+foreach($biblioteca as $key => $valor){
+    foreach($valor as $keys2){
+        if($keys2["anio"]<=1980){
+            echo "$key" ."-->".$keys2["titulo"]."<br>";
+        }
+    }
+}
 
 // 10) Recorre todos los libros y, para los que tengan "ejemplares",
 //     suma el total de ejemplares en todas las sedes y muéstralo así:

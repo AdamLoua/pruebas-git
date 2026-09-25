@@ -76,14 +76,25 @@ error_reporting(E_ALL);
     <p>8)
         <?php
             foreach($biblioteca as $key => $valor){
-                foreach($valor as $titulo){
-                    echo "$key" ."-->".$titulo["titulo"]."<br>";
+                foreach($valor as $keys2){
+                    echo "$key" ."-->".$keys2["titulo"]."<br>";
                 }
             }
 
         ?>
     </p>
 
+     <p>9)
+        <?php
+            foreach($biblioteca as $key => $valor){
+                foreach($valor as $keys2){
+                   if($keys2["anio"]<=1980){
+                        echo "$key" ."-->".$keys2["titulo"]."<br>";
+                   }
+                }
+            }
+        ?>
+    </p>
 
 
 </body>
