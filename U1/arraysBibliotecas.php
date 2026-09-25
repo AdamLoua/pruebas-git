@@ -77,7 +77,7 @@ error_reporting(E_ALL);
         <?php
             foreach($biblioteca as $key => $valor){
                 foreach($valor as $titulo){
-                    var_dump($titulo["titulo"]);
+                    echo "$key" ."-->".$titulo["titulo"]."<br>";
                 }
             }
 

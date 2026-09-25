@@ -110,7 +110,11 @@ if (isset($biblioteca["Poesía"][0]["ejemplares"])) {
 // 8) Recorre todas las categorías y, dentro de cada una, muestra el
 //    título de cada libro, con el formato:
 //    "Ciencia Ficción -> Fundación"
-
+foreach($biblioteca as $key => $valor){
+    foreach($valor as $titulo){
+        echo $titulo["titulo"]."<br>";
+    }
+}
 
 // 9) Recorre todo el array y muestra únicamente los libros publicados
 //    ANTES del año 1980, junto con su categoría.
