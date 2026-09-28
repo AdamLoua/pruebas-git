@@ -130,12 +130,30 @@ foreach($biblioteca as $key => $valor){
 //     suma el total de ejemplares en todas las sedes y muéstralo así:
 //     "Sapiens: 15 ejemplares en total"
 
+foreach($biblioteca as $key => $valor){
+    foreach($valor as $keys2){
+        if(isset($keys2["ejemplares"])){
+            echo $keys2["titulo"] ." : ". array_sum($keys2["ejemplares"])." ejemplares en total"."<br>";
+        }else{
+            echo $keys2["titulo"] ."no tiene ejemplares";
+        }
+    }
+} 
 
 // 11) Recorre todos los libros y detecta si alguna sede tiene 0
 //     ejemplares de algún libro. Muestra avisos con el formato:
 //     "Fundación no tiene ejemplares en Sur"
 
-
+foreach($biblioteca as $key => $valor){
+    foreach($valor as $keys2){
+        if(isset($keys2["ejemplares"])){
+        foreach($keys2["ejemplares"] as $sede => $numero)
+                if($numero===0){
+                    echo $keys2["titulo"]." no tiene ejemplares en " . $sede."<br>"; 
+            }
+        }
+    }
+}
 // 12) Recorre todos los libros que tengan "resenas" y calcula la nota
 //     media de cada uno (redondeada a 1 decimal). Muestra:
 //     "Sapiens - nota media: 4.0"

@@ -84,7 +84,7 @@ error_reporting(E_ALL);
         ?>
     </p>
 
-     <p>9)
+    <p>9)
         <?php
             foreach($biblioteca as $key => $valor){
                 foreach($valor as $keys2){
@@ -93,6 +93,35 @@ error_reporting(E_ALL);
                    }
                 }
             }
+        ?>
+    </p>
+
+    <p>10)
+        <?php
+           foreach($biblioteca as $key => $valor){
+                foreach($valor as $keys2){
+                   if(isset($keys2["ejemplares"])){
+                       echo $keys2["titulo"] ." : ". array_sum($keys2["ejemplares"])." ejemplares en total"."<br>";
+                   }else{
+                        echo $keys2["titulo"] ."no tiene ejemplares";
+                   }
+                }
+            } 
+        ?>
+    </p>
+
+     <p>11)
+        <?php
+           foreach($biblioteca as $key => $valor){
+                foreach($valor as $keys2){
+                   if(isset($keys2["ejemplares"])){
+                    foreach($keys2["ejemplares"] as $sede => $numero)
+                            if($numero===0){
+                                echo $keys2["titulo"]." no tiene ejemplares en " . $sede."<br>"; 
+                        }
+                   }
+                }
+            } 
         ?>
     </p>
 
