@@ -132,13 +132,13 @@ foreach($biblioteca as $key => $valor){
 
 foreach($biblioteca as $key => $valor){
     foreach($valor as $keys2){
-        if(isset($keys2["ejemplares"])){
+        if(isset($keys2["ejemplares"]) && array_sum($keys2["ejemplares"])!==0){
             echo $keys2["titulo"] ." : ". array_sum($keys2["ejemplares"])." ejemplares en total"."<br>";
         }else{
-            echo $keys2["titulo"] ."no tiene ejemplares";
+            echo $keys2["titulo"] ." no tiene ejemplares";
         }
     }
-} 
+}
 
 // 11) Recorre todos los libros y detecta si alguna sede tiene 0
 //     ejemplares de algún libro. Muestra avisos con el formato:
@@ -147,7 +147,7 @@ foreach($biblioteca as $key => $valor){
 foreach($biblioteca as $key => $valor){
     foreach($valor as $keys2){
         if(isset($keys2["ejemplares"])){
-        foreach($keys2["ejemplares"] as $sede => $numero)
+            foreach($keys2["ejemplares"] as $sede => $numero)
                 if($numero===0){
                     echo $keys2["titulo"]." no tiene ejemplares en " . $sede."<br>"; 
             }
@@ -158,6 +158,19 @@ foreach($biblioteca as $key => $valor){
 //     media de cada uno (redondeada a 1 decimal). Muestra:
 //     "Sapiens - nota media: 4.0"
 
+foreach($biblioteca as $key => $valor){
+    foreach($valor as $keys2){
+        if(isset($keys2["resenas"])){
+            $suma = 0;
+            $cantidad=count($keys2["resenas"]);
+            foreach($keys2["resenas"] as $resenas){ 
+                $suma +=$resenas["nota"]; 
+            }
+            $media = $suma /$cantidad;
+            echo "<p>La media de {$keys2["titulo"]} es : $media </p>";        
+        }   
+    }
+} 
 
 // 13) Recorre TODO el array (categorías, libros y reseñas) y cuenta
 //     cuántas reseñas en total tienen nota igual o superior a 4,

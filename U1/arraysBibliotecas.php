@@ -100,28 +100,92 @@ error_reporting(E_ALL);
         <?php
            foreach($biblioteca as $key => $valor){
                 foreach($valor as $keys2){
-                   if(isset($keys2["ejemplares"])){
+                   if(isset($keys2["ejemplares"]) && array_sum($keys2["ejemplares"])!==0){
                        echo $keys2["titulo"] ." : ". array_sum($keys2["ejemplares"])." ejemplares en total"."<br>";
                    }else{
-                        echo $keys2["titulo"] ."no tiene ejemplares";
+                        echo $keys2["titulo"] ." no tiene ejemplares";
                    }
                 }
             } 
         ?>
     </p>
 
-     <p>11)
+    <p>11)
         <?php
            foreach($biblioteca as $key => $valor){
                 foreach($valor as $keys2){
                    if(isset($keys2["ejemplares"])){
-                    foreach($keys2["ejemplares"] as $sede => $numero)
+                        foreach($keys2["ejemplares"] as $sede => $numero)
                             if($numero===0){
                                 echo $keys2["titulo"]." no tiene ejemplares en " . $sede."<br>"; 
                         }
                    }
                 }
             } 
+        ?>
+    </p>
+
+    <p>12)
+        <?php
+            foreach($biblioteca as $key => $valor){
+                foreach($valor as $keys2){
+                    if(isset($keys2["resenas"])){
+                        $suma = 0;
+                        $cantidad=count($keys2["resenas"]);
+                        foreach($keys2["resenas"] as $resenas){ 
+                            $suma +=$resenas["nota"]; 
+                        }
+                        $media = $suma /$cantidad;
+                        echo "<p>La media de {$keys2["titulo"]} es : $media </p>";        
+                    }   
+                }
+            }  
+        ?>
+    </p>
+
+    <p>13)
+        <?php
+            /*foreach($biblioteca as $key => $valor){
+                foreach($valor as $keys2){
+                    $numNotas = 0;
+                    if(isset($keys2["resenas"])){
+                        foreach($keys2["resenas"] as $resenas){                     
+                            if ($resenas["nota"] >= 4){
+                                $numNotas++;
+                            }                        
+                        }
+                        echo "<p>El libro {$keys2["titulo"]} tiene $numNotas reseñas superiores a 4.</p>";       
+                    }   
+                }
+            }
+            //
+            
+            cantidadReseñas[] =[];
+            foreach($biblioteca as $key => $valor){
+                foreach($valor as $keys2){
+
+                //$numNotas = 0;
+                if(isset($keys2["resenas"])){
+                    foreach($keys2["resenas"] as $resenas){
+                      
+                        if ($resenas["nota"] >= 4){
+                            $numNotas++;
+                        }
+                        
+                    }
+                    echo "<p>El libro {$libro["titulo"]} tiene $numNotas reseñas superiores a 4.</p>";       
+                }   
+                }
+            }
+            */
+            
+        ?>
+    </p>
+
+    <p>14)
+        <?php
+           
+            
         ?>
     </p>
 
