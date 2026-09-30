@@ -17,7 +17,7 @@
         ]; 
 
         //tabla con nombre y nota de matematicas.
-        //Si la nota es >=8: que la celda salga en verde.
+        //Si la nota es >=8: que la celda salga en verde y si es >= 9 que la letra este negrita
 
     ?>
     
