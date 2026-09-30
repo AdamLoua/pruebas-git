@@ -1,8 +1,6 @@
 <?php
 include "infoArrays/Bibliotecas.php";
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 ?>
 
 <!DOCTYPE html>
@@ -159,7 +157,7 @@ error_reporting(E_ALL);
                 }
             }
             //
-            
+
             cantidadReseñas[] =[];
             foreach($biblioteca as $key => $valor){
                 foreach($valor as $keys2){
