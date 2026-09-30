@@ -2,9 +2,24 @@ body{
     background-color: antiquewhite;
 }
 
-
-
 .green{
     background-color: greenyellow;
 }
 
+.greenHist{
+    background-color: rgb(194, 235, 137);
+}
+
+.negrita{
+    font-weight: bold;
+    font-size: larger;
+}
+
+.peque{
+    font-weight: bold;
+    font-size: small;
+}
+
+.cursiva{
+    font-style: italic;
+}

@@ -40,24 +40,34 @@
                         echo $alumno["nombre"];  //<?= $alumno["nombre"]; 
                     ?>
                 </td>
-                <td class=
+                <td class="
                 <?php
                     if($alumno["matematicas"]>=8){
-                        echo "green";
+                        echo "green ";
                     }else{
                         echo '""';
                     }
+                    if($alumno["matematicas"] >= 9){
+                        echo "negrita ";
+                    }
                 ?>
-                >
-                    <?php
-                        echo $alumno["nombre"];  
-                    ?>
+                
+                ">
+                <?= $alumno["matematicas"]?>    
                 </td>
 
-                <td class=<?= $alumno["historia"] >=8 ? "green" :""?>>
+                <td class="<?= $alumno["historia"] >= 8 ? "greenHist " :""?>
+                    <?= $alumno["historia"] >= 8.5 ? "negrita " :""?>
+                    <?= $alumno["historia"] >= 9 ? "cursiva " :""?>
+                    <?= $alumno["historia"] <=7 ? "peque " :""?>
+
+                    ">
+
                     <?= $alumno["historia"]?>
+
                 </td>
                 
+                <!-- <td class="greenHist negrita">...</td>-->
             </tr>
             <?php
             endforeach;
