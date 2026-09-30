@@ -6,8 +6,17 @@
     <title>Document</title>
 </head>
 <body>
+    <table>
+        <thead>
+            <th>a</th>
+            <th>b</th>
+            <th>resultado</th>
+
+
+        </thead>
+    </table>
     <?php
-  
+
     ?>
 <!--   #ejercicio 1 NO PEDIA ESTO
         $number = '<table border="1">';
