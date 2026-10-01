@@ -10,8 +10,7 @@
     <table>
         <tr>
             <td>X</td>
-        
-        
+
         <?php
             for($i=0;$i<10;$i++){
                 echo "<td>". $i. "</td>";
@@ -19,12 +18,19 @@
             }
         ?>
         </tr>
-            <?php
-                for($i=0;$i<10;$i++){
-                    echo "<tr><td>". $i. "</td></tr>";
 
+        <?php
+            for($i=0;$i<10;$i++){
+                echo "<tr>";
+                echo "<td>".$i."</td>";
+                for($j=0;$j<10;$j++){
+                    echo "<td>".$i*$j."</td>";
                 }
-            ?>
+                echo "</tr>";
+
+
+            }
+        ?>
        
     </table>
 </body>
