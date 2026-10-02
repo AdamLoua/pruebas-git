@@ -72,6 +72,18 @@
     <br>
     <br>
 
+    <?php
+        for($i=0;$i<$rows;$i++){
+            for($j=0;$j<$cols;$j++){
+                if($i%2 == 0){
+                    echo "*";echo "&nbsp";echo "&nbsp";
+                }else{
+                 echo "&nbsp";   echo "&nbsp";echo "*"; 
+                }
+            }
+            echo "<br>";
+        }
+    ?>
     
 
     
