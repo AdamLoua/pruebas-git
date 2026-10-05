@@ -52,7 +52,7 @@
     $array = [11,-23,7,4,5,-6,-73,81,9,-10];
     var_dump(filterByType($array,"primo"));
 
-    function calculateStatistics(array $numeros){
+    function calculateStatistics(array $numeros):array{
         $asoc = [];
         $media = 0;
         $suma = 0;
@@ -76,14 +76,55 @@
 
         //moda 
         $unicos = array_count_values($numeros);
-        var_dump($unicos);
+        
+        $maxrepeticiones = 0;
+        foreach($unicos as $unico => $repeticiones){
+            if($repeticiones > $maxrepeticiones){
+                $maxrepeticiones = $repeticiones;
+                $moda = $unico;
+            }
+        }
+        
         
         $asoc["media"] = $media;
         $asoc["mediana"] = $mediana;
+        $asoc["moda"] = $moda;
+
         return $asoc;
     }
 
     $prueba = [5,10,20,2,6,5,2,4,4,2];
     var_dump(calculateStatistics($prueba));
+
+
+    function analyzeWords(String $texto):array{
+        $analisis=[];
+        $maxletras = 0;
+        $minletras =0;
+        $palabramaslarga ="";
+        $palabramascorta ="";
+
+        $arrayTexto = explode(" ", $texto);
+        foreach($arrayTexto as $palabras){
+            if(strlen($palabras)>$maxletras){
+                $maxletras = strlen($palabras);
+                $palabramaslarga = $palabras;
+
+            }
+            
+        }
+        
+        $analisis["number_of_words"] = count($arrayTexto);
+        $analisis["longest_word"] = $palabramaslarga;
+        $analisis["shortest_word"] = $palabramascorta;
+
+
+        return $analisis;
+        
+        
+    }
+
+    $texto = "Hola me llamo Adam y en quince minutos tendré clase de inglés";
+    var_dump(analyzeWords($texto));
     
 ?>
