@@ -111,7 +111,11 @@
                 $palabramaslarga = $palabras;
 
             }
-            
+            /*if(strlen($palabras)<palabramaslarga){
+                $minletras = strlen($palabras);
+                $palabramascorta = $palabras;
+                    ?
+            } */
         }
         
         $analisis["number_of_words"] = count($arrayTexto);
