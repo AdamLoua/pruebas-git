@@ -20,8 +20,7 @@
         $rows = $nombre % 8 + 4;
         $cols = $app % 6 + 5;
 
-        var_dump($rows);
-        var_dump($cols);
+
 
         for($i=0;$i<$rows;$i++){
             for($j=0;$j<$cols;$j++){
@@ -75,10 +74,10 @@
     <?php
         for($i=0;$i<$rows;$i++){
             for($j=0;$j<$cols;$j++){
-                if($i%2 == 0){
-                    echo "*";echo "&nbsp";echo "&nbsp";
+                if(($i+$j)%2 == 0){
+                    echo "*&nbsp";
                 }else{
-                 echo "&nbsp";   echo "&nbsp";echo "*"; 
+                 echo "&nbsp&nbsp&nbsp";   
                 }
             }
             echo "<br>";
