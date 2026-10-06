@@ -99,23 +99,23 @@
 
     function analyzeWords(String $texto):array{
         $analisis=[];
+        $arrayTexto = explode(" ", $texto);
         $maxletras = 0;
-        $minletras =0;
+        $minletras =$arrayTexto[0];
         $palabramaslarga ="";
         $palabramascorta ="";
 
-        $arrayTexto = explode(" ", $texto);
+        
         foreach($arrayTexto as $palabras){
             if(strlen($palabras)>$maxletras){
                 $maxletras = strlen($palabras);
                 $palabramaslarga = $palabras;
 
             }
-            /*if(strlen($palabras)<palabramaslarga){
+            if(strlen($palabras)<$minletras){
                 $minletras = strlen($palabras);
                 $palabramascorta = $palabras;
-                    ?
-            } */
+            }
         }
         
         $analisis["number_of_words"] = count($arrayTexto);
