@@ -27,5 +27,30 @@ $productos = [
     }
 
     $colacao = 899;
+    echo "<pre>";
     var_dump(formatPrice($colacao));
+    echo "</pre>";
+
+    function calculateIVA(float $precio, float $iva = 1.21):float{
+        return $precio*$iva;
+    }
+
+    echo "<pre>";
+    var_dump(calculateIVA(100, 1.45));
+    echo "</pre>";
+
+    function getStock(array $productos):array{
+        $existencias = [];
+        foreach($productos as $prod => $stock){
+            if($stock["stock"]>0){
+                array_push($existencias,$prod);
+            }
+        }
+        return $existencias;
+    }
+   
+    echo "<pre>";
+    var_dump(getStock($productos));
+    echo "</pre>";
+
 ?>
