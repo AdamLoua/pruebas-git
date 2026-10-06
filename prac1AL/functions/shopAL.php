@@ -19,8 +19,13 @@ $productos = [
         'categoria' => 'electrónica'
     ]
 ];
+    //funcion predefinida ---> sprintf("%.2f €", 19.5)  // "19.50 €" — formato
+    //number_format(1234567.891, 2, ',', '.') // "1.234.567,89"
 
-    function formatPrice(){
-        
+    function formatPrice(float $precio):string{  
+       return sprintf("%.2f €", $precio);
     }
+
+    $colacao = 899;
+    formatPrice($colacao);
 ?>
