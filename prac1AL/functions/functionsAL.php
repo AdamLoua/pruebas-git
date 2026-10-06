@@ -130,5 +130,46 @@
 
     $texto = "Hola me llamo Adam y en quince minutos tendré clase de inglés";
     var_dump(analyzeWords($texto));
+
+    function convertTemperature(float $grados, string $origen = "celsius", string $destino = "fahrenheit"):float{
+        switch($origen){
+            case "celsius":
+                if($destino === "fahrenheit"){
+                    //celsius a fahrenheit
+                    $grados = ($grados*1.8)+32;
+                }else{
+                    //celsius a kelvin
+                    $grados = $grados+273.15; 
+                }
+                break;
+
+            case "fahrenheit":
+                if($destino === "celsius"){
+                    //fahrenheit a celsius 
+                    $grados = ($grados-32)/1.8;
+                }else{
+                    //fahrenheit a kelvin
+                    $grados = ($grados-32)/1.8+273.15; 
+                }
+                break;
+            
+            case "kelvin":
+                if($destino === "celsius"){
+                    //kelvin a celsius 
+                    $grados = $grados-273.15;
+                }else{
+                    //kelvin a fahrenheit
+                    $grados = ($grados-273.15)*1.8+32; 
+                }
+                break;  
+            
+            default: $grados = false;    
+  
+        }
+
+        return $grados;
+    }
+
+    var_dump(convertTemperature(21, "kelvin", "fahrenheit",));
     
 ?>
