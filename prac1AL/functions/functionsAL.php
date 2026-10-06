@@ -131,45 +131,52 @@
     $texto = "Hola me llamo Adam y en quince minutos tendré clase de inglés";
     var_dump(analyzeWords($texto));
 
-    function convertTemperature(float $grados, string $origen = "celsius", string $destino = "fahrenheit"):float{
-        switch($origen){
-            case "celsius":
-                if($destino === "fahrenheit"){
-                    //celsius a fahrenheit
-                    $grados = ($grados*1.8)+32;
-                }elseif($destino === "kelvin"){
-                    //celsius a kelvin
-                    $grados = $grados+273.15; 
-                }
-                break;
-
-            case "fahrenheit":
-                if($destino === "celsius"){
-                    //fahrenheit a celsius 
-                    $grados = ($grados-32)/1.8;
-                }elseif($destino === "kelvin"){
-                    //fahrenheit a kelvin
-                    $grados = ($grados-32)/1.8+273.15; 
-                }
-                break;
-            
-            case "kelvin":
-                if($destino === "celsius"){
-                    //kelvin a celsius 
-                    $grados = $grados-273.15;
-                }elseif($destino === "fahrenheit"){
-                    //kelvin a fahrenheit
-                    $grados = ($grados-273.15)*1.8+32; 
-                }
-                break;  
-            
-            default: $grados = false;  //0  
-  
+    function convertTemperature(float $grados, string $origen = "celsius", string $destino = "fahrenheit"):float|bool{
+        $valido = false;
+        if(($origen === "celsius" | $origen === "fahrenheit" | $origen === "kelvin") && ($destino === "celsius" | $destino === "fahrenheit" | $destino === "kelvin")){
+            $valido = true;
         }
+        if($valido){
+            switch($origen){
+                case "celsius":
+                    if($destino === "fahrenheit"){
+                        //celsius a fahrenheit
+                        $grados = ($grados*1.8)+32;
+                    }elseif($destino === "kelvin"){
+                        //celsius a kelvin
+                        $grados = $grados+273.15; 
+                    }
+                    break;
 
+                case "fahrenheit":
+                    if($destino === "celsius"){
+                        //fahrenheit a celsius 
+                        $grados = ($grados-32)/1.8;
+                    }elseif($destino === "kelvin"){
+                        //fahrenheit a kelvin
+                        $grados = ($grados-32)/1.8+273.15; 
+                    }
+                    break;
+                
+                case "kelvin":
+                    if($destino === "celsius"){
+                        //kelvin a celsius 
+                        $grados = $grados-273.15;
+                    }elseif($destino === "fahrenheit"){
+                        //kelvin a fahrenheit
+                        $grados = ($grados-273.15)*1.8+32; 
+                    }
+                    break;  
+                
+                default: $grados = false;  //0  
+    
+            }
+        }else{
+            return $valido;
+        }
         return $grados;
     }
 
-    var_dump(convertTemperature(21, "kelvin", "celsius"));
+    var_dump(convertTemperature(21));
     
 ?>
