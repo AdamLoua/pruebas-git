@@ -137,7 +137,7 @@
                 if($destino === "fahrenheit"){
                     //celsius a fahrenheit
                     $grados = ($grados*1.8)+32;
-                }else{
+                }elseif($destino === "kelvin"){
                     //celsius a kelvin
                     $grados = $grados+273.15; 
                 }
@@ -147,7 +147,7 @@
                 if($destino === "celsius"){
                     //fahrenheit a celsius 
                     $grados = ($grados-32)/1.8;
-                }else{
+                }elseif($destino === "kelvin"){
                     //fahrenheit a kelvin
                     $grados = ($grados-32)/1.8+273.15; 
                 }
@@ -157,19 +157,19 @@
                 if($destino === "celsius"){
                     //kelvin a celsius 
                     $grados = $grados-273.15;
-                }else{
+                }elseif($destino === "fahrenheit"){
                     //kelvin a fahrenheit
                     $grados = ($grados-273.15)*1.8+32; 
                 }
                 break;  
             
-            default: $grados = false;    
+            default: $grados = false;  //0  
   
         }
 
         return $grados;
     }
 
-    var_dump(convertTemperature(21, "kelvin", "fahrenheit",));
+    var_dump(convertTemperature(21, "kelvin", "celsius"));
     
 ?>
