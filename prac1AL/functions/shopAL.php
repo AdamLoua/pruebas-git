@@ -27,5 +27,5 @@ $productos = [
     }
 
     $colacao = 899;
-    formatPrice($colacao);
+    var_dump(formatPrice($colacao));
 ?>
