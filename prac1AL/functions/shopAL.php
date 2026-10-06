@@ -20,7 +20,6 @@ $productos = [
     ]
 ];
     //funcion predefinida ---> sprintf("%.2f €", 19.5)  // "19.50 €" — formato
-    //number_format(1234567.891, 2, ',', '.') // "1.234.567,89"
 
     function formatPrice(float $precio):string{  
        return sprintf("%.2f €", $precio);
@@ -31,12 +30,12 @@ $productos = [
     var_dump(formatPrice($colacao));
     echo "</pre>";
 
-    function calculateIVA(float $precio, float $iva = 1.21):float{
-        return $precio*$iva;
+    function calculateIVA(float $precio, float $iva =0.21):float{
+        return $precio*(1+$iva);
     }
 
     echo "<pre>";
-    var_dump(calculateIVA(100, 1.45));
+    var_dump(calculateIVA(100, 0.19));
     echo "</pre>";
 
     function getStock(array $productos):array{

@@ -14,8 +14,7 @@
     <?php
         $nombre = ord('A') - ord('A') +1;
         $app = ord('L') - ord('A') +1;
-        var_dump($nombre);
-        var_dump($app);
+        
 
         $rows = $nombre % 8 + 4;
         $cols = $app % 6 + 5;
@@ -84,6 +83,42 @@
         }
     ?>
     
+
+
+    <?php
+        $temperaturas =[];
+        for($i=0;$i<6;$i++){
+            for($j=0;$j<7;$j++){
+                $temperaturas[$i][$j] = rand(-10,45);
+        }
+        }
+
+        $maxima = $temperaturas[0][0];
+        $dia = 0;
+        $ciudad = 0;
+
+
+        for($i=0;$i<6;$i++){
+            for($j=0;$j<7;$j++){
+               if($temperaturas[$i][$j]>$maxima){
+                    $maxima = $temperaturas[$i][$j];
+                    $ciudad = $i;
+                    $dia = $j;
+               }
+            }
+        }
+
+        echo "<pre>";
+        var_dump($temperaturas);
+        echo "</pre>";
+        
+        echo "<pre>";
+        //var_dump($maxima);
+        echo "Temperatura maxima: $maxima (Dia " . ($dia + 1) . ", Ciudad " . ($ciudad + 1) . ")";
+        echo "</pre>";
+        
+
+    ?>
 
     
     
