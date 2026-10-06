@@ -133,7 +133,7 @@
 
     function convertTemperature(float $grados, string $origen = "celsius", string $destino = "fahrenheit"):float|bool{
         $valido = false;
-        if(($origen === "celsius" | $origen === "fahrenheit" | $origen === "kelvin") && ($destino === "celsius" | $destino === "fahrenheit" | $destino === "kelvin")){
+        if(($origen === "celsius" || $origen === "fahrenheit" || $origen === "kelvin") && ($destino === "celsius" || $destino === "fahrenheit" || $destino === "kelvin")){
             $valido = true;
         }
         if($valido){
@@ -167,9 +167,6 @@
                         $grados = ($grados-273.15)*1.8+32; 
                     }
                     break;  
-                
-                default: $grados = false;  //0  
-    
             }
         }else{
             return $valido;
@@ -177,6 +174,6 @@
         return $grados;
     }
 
-    var_dump(convertTemperature(21));
+    var_dump(convertTemperature(21, "kelvin", "celsius"));
     
 ?>
