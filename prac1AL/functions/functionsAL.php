@@ -50,7 +50,9 @@
     }
 
     $array = [11,-23,7,4,5,-6,-73,81,9,-10];
+    echo '<pre>';
     var_dump(filterByType($array,"primo"));
+    echo '</pre>';
 
     function calculateStatistics(array $numeros):array{
         $asoc = [];
@@ -94,8 +96,9 @@
     }
 
     $prueba = [5,10,20,2,6,5,2,4,4,2];
+    echo '<pre>';
     var_dump(calculateStatistics($prueba));
-
+    echo '</pre>';
 
     function analyzeWords(String $texto):array{
         $analisis=[];
@@ -129,7 +132,9 @@
     }
 
     $texto = "Hola me llamo Adam y en quince minutos tendré clase de inglés";
+    echo '<pre>';
     var_dump(analyzeWords($texto));
+    echo '</pre>';
 
     function convertTemperature(float $grados, string $origen = "celsius", string $destino = "fahrenheit"):float|bool{
         $valido = false;
@@ -173,7 +178,7 @@
         }
         return $grados;
     }
-
+    echo '<pre>';
     var_dump(convertTemperature(21, "kelvin", "celsius"));
-    
+    echo '</pre>';
 ?>
