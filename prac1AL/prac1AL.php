@@ -102,6 +102,7 @@
         var_dump($temperaturas);
         echo "</pre>";
     ?>
+
     <table class=tabla>
         <tr>
             <td>Ciudad/Dia</td>
@@ -114,23 +115,24 @@
             <td>Media</td>
         </tr>  
         
-        <?php
-            echo "<tr>";
-            for($i=0;$i<6;$i++){
-                echo "<td>Ciudad ". ($i+1)."</td>";
-                for($j=0;$j<7;$j++){
-                    if($temperaturas[$i][$j]<0){
-                        echo "<td class=azul>".$temperaturas[$i][$j]."</td>";
-                    }else{
-                        echo "<td>".$temperaturas[$i][$j]."</td>";
-
-                    }
-                }
-                $media = round(array_sum($temperaturas[$i])/count($temperaturas[$i]),1);
-                echo "<td>$media</td>";
-                echo "</tr>";
-            }  
+        <?php 
+            for($i=0;$i<6;$i++) : 
         ?>
+        <tr>
+            <td>Ciudad <?= $i+1?></td>
+            <?php
+                for($j=0;$j<7;$j++):
+            ?>
+                <td><?= $temperaturas[$i][$j]?></td>
+            <?php
+               endfor;
+            ?>
+            <td><?=round(array_sum($temperaturas[$i])/count($temperaturas[$i]),1)?></td>
+        </tr>
+        <?php
+            endfor;
+        ?>
+        
     </table>
 
     <?php
