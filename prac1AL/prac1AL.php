@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles/styleAL.css">
 </head>
 <body>
     <h1>Práctica</h1>
@@ -87,14 +88,19 @@
 
     <h2>Ejercicio 2: Arrays bidimensionales</h2>
 
-    //crear array
+    
     <?php
+        //crear array
         $temperaturas =[];
         for($i=0;$i<6;$i++){
             for($j=0;$j<7;$j++){
                 $temperaturas[$i][$j] = rand(-10,45);
             }
         }
+
+        echo "<pre>";
+        var_dump($temperaturas);
+        echo "</pre>";
     ?>
     <table border="1">
         <tr>
@@ -115,13 +121,11 @@
                 for($j=0;$j<7;$j++){
                     echo "<td>".$temperaturas[$i][$j]."</td>";
                 }
+                $media = round(array_sum($temperaturas[$i])/count($temperaturas[$i]),1);
+                echo "<td>$media</td>";
                 echo "</tr>";
             }  
         ?>
-        
-
-    
-   
     </table>
 
     <?php
@@ -159,9 +163,7 @@
             }
         }
 
-        echo "<pre>";
-        var_dump($temperaturas);
-        echo "</pre>";
+        
         
         echo "<pre>";
         echo "Temperatura maxima: $maxima (Dia " . ($diamax + 1) . ", Ciudad " . ($ciudadmax + 1) . ")";
