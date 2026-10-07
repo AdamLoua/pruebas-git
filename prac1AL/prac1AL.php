@@ -87,7 +87,15 @@
 
     <h2>Ejercicio 2: Arrays bidimensionales</h2>
 
-    
+    //crear array
+    <?php
+        $temperaturas =[];
+        for($i=0;$i<6;$i++){
+            for($j=0;$j<7;$j++){
+                $temperaturas[$i][$j] = rand(-10,45);
+            }
+        }
+    ?>
     <table border="1">
         <tr>
             <td>Ciudad/Dia</td>
@@ -101,27 +109,19 @@
         </tr>  
         
         <?php
-            for($i=0;$i<6;$j++){
-                echo "<tr>";
-                echo "<td>asasdad</td>";
-
+            echo "<tr>";
+            for($i=0;$i<6;$i++){
+                echo "<td>Ciudad ". ($i+1)."</td>";
+                for($j=0;$j<7;$j++){
+                    echo "<td>".$temperaturas[$i][$j]."</td>";
+                }
                 echo "</tr>";
-            }
+            }  
         ?>
         
 
     
-    <?php
-        $temperaturas =[];
-        for($i=0;$i<6;$i++){
-            for($j=0;$j<7;$j++){
-                $temperaturas[$i][$j] = rand(-10,45);
-        }
-        }
-
-
-
-    ?>
+   
     </table>
 
     <?php
