@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Práctica</h1>
     <!-- 
         a -> (1 % 8) + 4 = 1 + 4 = 5
         l -> (12 % 6) + 5 = 0 + 5 = 5 
@@ -84,7 +85,32 @@
     ?>
     
 
+    <h2>Ejercicio 2: Arrays bidimensionales</h2>
 
+    
+    <table border="1">
+        <tr>
+            <td>Ciudad/Dia</td>
+            <?php
+                for($j=0;$j<7;$j++){
+                echo "<td>Dia ".($j+1)."</td>";
+                }
+        
+            ?> 
+            <td>Media</td>
+        </tr>  
+        
+        <?php
+            for($i=0;$i<6;$j++){
+                echo "<tr>";
+                echo "<td>asasdad</td>";
+
+                echo "</tr>";
+            }
+        ?>
+        
+
+    
     <?php
         $temperaturas =[];
         for($i=0;$i<6;$i++){
@@ -93,17 +119,42 @@
         }
         }
 
+
+
+    ?>
+    </table>
+
+    <?php
+
         $maxima = $temperaturas[0][0];
-        $dia = 0;
-        $ciudad = 0;
+        $minima = $temperaturas[0][0];
 
+        $diamax = 0;
+        $ciudadmax = 0;
+        $diamin = 0;
+        $ciudadmin = 0;
 
+        $media = 0;
+
+        //temperatura max
         for($i=0;$i<6;$i++){
             for($j=0;$j<7;$j++){
                if($temperaturas[$i][$j]>$maxima){
                     $maxima = $temperaturas[$i][$j];
-                    $ciudad = $i;
-                    $dia = $j;
+                    $ciudadmax = $i;
+                    $diamax = $j;
+               }
+            }
+        }
+
+        //temperatura min
+
+        for($i=0;$i<6;$i++){
+            for($j=0;$j<7;$j++){
+               if($temperaturas[$i][$j]<$minima){
+                    $minima = $temperaturas[$i][$j];
+                    $ciudadmin = $i;
+                    $diamin = $j;
                }
             }
         }
@@ -113,11 +164,23 @@
         echo "</pre>";
         
         echo "<pre>";
-        //var_dump($maxima);
-        echo "Temperatura maxima: $maxima (Dia " . ($dia + 1) . ", Ciudad " . ($ciudad + 1) . ")";
+        echo "Temperatura maxima: $maxima (Dia " . ($diamax + 1) . ", Ciudad " . ($ciudadmax + 1) . ")";
         echo "</pre>";
-        
 
+        echo "<pre>";
+        echo "Temperatura minima: $minima (Dia " . ($diamin + 1) . ", Ciudad " . ($ciudadmin + 1) . ")";
+        echo "</pre>";
+
+        //temperatura media ciudad
+        foreach($temperaturas as $ciudad => $valores){
+            $media = round(array_sum($valores)/count($valores),2);
+            echo "<pre>";
+            echo " Ciudad : ". ($ciudad+1) ." --> media : ". $media;
+            echo "</pre>";
+
+        }
+        
+        
     ?>
 
     
