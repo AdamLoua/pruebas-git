@@ -101,41 +101,6 @@
         echo "<pre>";
         var_dump($temperaturas);
         echo "</pre>";
-    ?>
-
-    <table class=tabla>
-        <tr>
-            <td>Ciudad/Dia</td>
-            <?php
-                for($j=0;$j<7;$j++){
-                echo "<td>Dia ".($j+1)."</td>";
-                }
-        
-            ?> 
-            <td>Media</td>
-        </tr>  
-        
-        <?php 
-            for($i=0;$i<6;$i++) : 
-        ?>
-        <tr>
-            <td>Ciudad <?= $i+1?></td>
-            <?php
-                for($j=0;$j<7;$j++):
-            ?>
-                <td><?= $temperaturas[$i][$j]?></td>
-            <?php
-               endfor;
-            ?>
-            <td><?=round(array_sum($temperaturas[$i])/count($temperaturas[$i]),1)?></td>
-        </tr>
-        <?php
-            endfor;
-        ?>
-        
-    </table>
-
-    <?php
 
         $maxima = $temperaturas[0][0];
         $minima = $temperaturas[0][0];
@@ -159,7 +124,6 @@
         }
 
         //temperatura min
-
         for($i=0;$i<6;$i++){
             for($j=0;$j<7;$j++){
                if($temperaturas[$i][$j]<$minima){
@@ -170,8 +134,6 @@
             }
         }
 
-        
-        
         echo "<pre>";
         echo "Temperatura maxima: $maxima (Dia " . ($diamax + 1) . ", Ciudad " . ($ciudadmax + 1) . ")";
         echo "</pre>";
@@ -181,16 +143,63 @@
         echo "</pre>";
 
         //temperatura media ciudad
+        $media = [];
         foreach($temperaturas as $ciudad => $valores){
-            $media = round(array_sum($valores)/count($valores),2);
+            $media[$ciudad] = round(array_sum($valores)/count($valores),1);
             echo "<pre>";
-            echo " Ciudad : ". ($ciudad+1) ." --> media : ". $media;
+            echo " Ciudad : ". ($ciudad+1) ." --> media : ". $media[$ciudad];
             echo "</pre>";
 
         }
-        
-        
+        $ciudadcalurosa = max($media);
     ?>
+
+    
+
+    <table class=tabla>
+        <tr>
+            <td class="gris">Ciudad/Dia</td>
+            <?php
+            for($j=0;$j<7;$j++):
+            ?>         
+                <td class="gris <?= $j == 5 || $j == 6 ? "verde " : "" ?>">
+                    Dia <?= $j+1?>
+                </td>
+                
+            <?php
+            endfor;
+            ?> 
+            <td class="gris">Media</td>
+        </tr>  
+        
+        <?php 
+            for($i=0;$i<6;$i++) : 
+        ?>
+        <tr>
+            <td class="ciudad">Ciudad <?= $i+1?></td>
+            <?php
+            for($j=0;$j<7;$j++):
+            ?>
+                <td class="<?= $temperaturas[$i][$j] < 0 ? "azul " : "" ?>
+                    <?= $temperaturas[$i][$j] > 35 ? "rojo " : "" ?>
+                    <?= $temperaturas[$i][$j] == $minima ? "minima " : "" ?>
+                    <?= $temperaturas[$i][$j] == $maxima ? "maxima " : "" ?>
+                    <?= $j == 5 || $j == 6 ? "verde " : "" ?>
+                    <?= $media[$i] == $ciudadcalurosa ? "amarillo " : "" ?>
+                ">
+                    <?= $temperaturas[$i][$j]?>°
+                </td>
+            <?php
+            endfor;
+            ?>
+            <td class="gris borde"><?=$media[$i]?>°</td>
+        </tr>
+        <?php
+            endfor;
+        ?>
+        
+    </table>
+
 
     
     

@@ -1,14 +1,49 @@
-.tabla td{
+.tabla{
     text-align: center;
+    padding: 3px;
+    border: 2px solid black;
+    border-radius: 6px;
+}
+
+td{
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(209, 209, 209);
+}
+
+.gris{
+    background-color: lightgrey;
+}
+
+.borde{
+    border-left: 3px solid rgb(70, 67, 67);
+}
+
+.ciudad{
+    background-color: lightblue;
 }
 
 .azul{
-    color: rgb(50, 163, 255);
+    color: blue;
 }
 
 .rojo{
     color: red;
 }
 
+.minima{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.maxima{
+    font-style: italic;
+    color: brown;
+}
+
+.verde{
+    background-color: rgba(173, 255, 173, 0.753);
+}
+
+.amarillo{
+   background-color: rgb(218, 218, 146);
+}
