@@ -246,12 +246,7 @@
     </table>
 
     <?php
-        include "functions/shopAL.php";
-        /*muestra una tabla con:
-            • Nombre formateado (primera letra mayúscula)
-            • Precio con IVA
-            • Stock en verde si > 10, amarillo si > 0, rojo si = 0 
-        */   
+        include "functions/shopAL.php";   
     ?>
 
     <table class="tabla">
@@ -303,7 +298,6 @@
                     echo "<td>". formatPrice(calculateIVA($val["precio"]))."</td>";
                 }
             ?>
-            
             <td class="<?=$val["stock"]>0 && $val["stock"]<=10? "amarillo ":"" ?>
                         <?=$val["stock"]>10 ? "verde ":"" ?> 
                         <?=$val["stock"]==0 ? "rojofondo ":"" ?>
@@ -315,10 +309,5 @@
         ?>
     </table>
 
-    
-
-
-    
-    
 </body>
 </html>
