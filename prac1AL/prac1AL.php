@@ -262,6 +262,7 @@
           <th>Categoria</th> 
         </tr>
 
+        
         <?php
             foreach($productos as $val):
         ?>  
@@ -277,8 +278,38 @@
         <?php
             endforeach;
         ?>
+         
        
     </table>
+
+    <table class="tabla">
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Categoria</th> 
+        </tr>
+
+        
+        <?php
+            foreach($productosConDescuento as $val):
+        ?>  
+        <tr>
+            <td><?= ucfirst($val["nombre"])?></td>
+            //php if isset descuento....
+            <td><?= formatPrice(calculateIVA($val["precio"]))?></td>
+            <td class="<?=$val["stock"]>0 && $val["stock"]<=10? "amarillo ":"" ?>
+                        <?=$val["stock"]>10 ? "verde ":"" ?> 
+                        <?=$val["stock"]==0 ? "rojofondo ":"" ?>
+            "><?= $val["stock"]?></td>
+            <td><?= $val["categoria"]?></td>
+        </tr>
+        <?php
+            endforeach;
+        ?>
+    </table>
+
+    
 
 
     

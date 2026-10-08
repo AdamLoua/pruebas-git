@@ -19,6 +19,30 @@ $productos = [
         'categoria' => 'electrónica'
     ]
 ];
+
+$productosConDescuento = [
+    'prod1' => [
+        'nombre' => 'portátil gaming',
+        'precio' => 899.99,
+        'stock' => 15,
+        'categoria' => 'electrónica',
+        'descuento' => 199.99
+    ],
+    'prod2' => [
+        'nombre' => 'mesa escritorio',
+        'precio' => 120.50,
+        'stock' => 8,
+        'categoria' => 'hogar'
+    ],
+    'prod3' => [
+        'nombre' => 'ratón inalámbrico',
+        'precio' => 25.99,
+        'stock' => 0,
+        'categoria' => 'electrónica',
+        'descuento' => 10.49
+
+    ]
+];
     //funcion predefinida ---> sprintf("%.2f €", 19.5)  // "19.50 €" — formato
 
     function formatPrice(float $precio):string{  
