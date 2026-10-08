@@ -157,17 +157,17 @@
         //dia con mayor variacion termica
         $variacion = [];
         for($i=0;$i<7;$i++){
-            $maxima = $temperaturas[0][$i];
-            $minima = $temperaturas[0][$i];
+            $maximaParaVariacion = $temperaturas[0][$i];
+            $minimaParaVariacion = $temperaturas[0][$i];
             for($j=0;$j<6;$j++){
-                if($temperaturas[$j][$i]>$maxima){
-                    $maxima = $temperaturas[$j][$i];
+                if($temperaturas[$j][$i]>$maximaParaVariacion){
+                    $maximaParaVariacion= $temperaturas[$j][$i];
                 }
-                if($temperaturas[$j][$i]<$minima){
-                    $minima = $temperaturas[$j][$i];
+                if($temperaturas[$j][$i]<$minimaParaVariacion){
+                    $minimaParaVariacion = $temperaturas[$j][$i];
                 }
             }
-            $variacion[$i]= $maxima - $minima;
+            $variacion[$i]= $maximaParaVariacion - $minimaParaVariacion;
         }
         $maxvariacion = max($variacion);
 
