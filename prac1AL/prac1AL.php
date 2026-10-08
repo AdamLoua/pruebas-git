@@ -8,11 +8,6 @@
 </head>
 <body>
     <h1>Práctica</h1>
-    <!-- 
-        a -> (1 % 8) + 4 = 1 + 4 = 5
-        l -> (12 % 6) + 5 = 0 + 5 = 5 
-    -->
-    
     <?php
         $nombre = ord('A') - ord('A') +1;
         $app = ord('L') - ord('A') +1;
@@ -25,7 +20,7 @@
 
         for($i=0;$i<$rows;$i++){
             for($j=0;$j<$cols;$j++){
-                echo "*&nbsp";
+                echo "*&nbsp;";
             }
             echo "<br>";
         }
@@ -35,13 +30,13 @@
 
     <?php
        for($i=0;$i<$rows;$i++){
-            echo "*&nbsp";
+            echo "*&nbsp;";
             if($i == $rows-1){
                 echo "<br>";
                 for($j=0;$j<$rows-2;$j++){
                     echo "*";
                     for($h=0;$h<=$cols*2-1;$h++){
-                        echo "&nbsp";
+                        echo "&nbsp;";
                     }
                     echo "*";
                     echo "<br>";
@@ -49,7 +44,7 @@
             }   
         }
         for($i=0;$i<$rows;$i++){
-            echo "*&nbsp";
+            echo "*&nbsp;";
         } 
     ?>
 
@@ -76,9 +71,9 @@
         for($i=0;$i<$rows;$i++){
             for($j=0;$j<$cols;$j++){
                 if(($i+$j)%2 == 0){
-                    echo "*&nbsp";
+                    echo "*&nbsp;";
                 }else{
-                 echo "&nbsp&nbsp&nbsp";   
+                    echo "&nbsp;&nbsp;&nbsp;";   
                 }
             }
             echo "<br>";
@@ -97,19 +92,18 @@
                 $temperaturas[$i][$j] = rand(-10,45);
             }
         }
-
+        /*
         echo "<pre>";
         var_dump($temperaturas);
         echo "</pre>";
+        */
 
         $maxima = $temperaturas[0][0];
         $minima = $temperaturas[0][0];
-
         $diamax = 0;
         $ciudadmax = 0;
         $diamin = 0;
         $ciudadmin = 0;
-
         $media = 0;
 
         //temperatura max
@@ -134,6 +128,7 @@
             }
         }
 
+        /*
         echo "<pre>";
         echo "Temperatura maxima: $maxima (Dia " . ($diamax + 1) . ", Ciudad " . ($ciudadmax + 1) . ")";
         echo "</pre>";
@@ -141,14 +136,17 @@
         echo "<pre>";
         echo "Temperatura minima: $minima (Dia " . ($diamin + 1) . ", Ciudad " . ($ciudadmin + 1) . ")";
         echo "</pre>";
+        */
 
         //temperatura media por ciudad
         $media = [];
         foreach($temperaturas as $ciudad => $valores){
             $media[$ciudad] = round(array_sum($valores)/count($valores),1);
+            /*
             echo "<pre>";
             echo " Ciudad : ". ($ciudad+1) ." --> media : ". $media[$ciudad];
             echo "</pre>";
+            */
 
         }
         //ciudad mas calurosa
@@ -178,10 +176,11 @@
             }
         }
 
+        /*
         echo "<pre>";
             echo "Dia con mayor variación: Dia $diamaxvariacion $maxvariacion ºC de diferencia";
         echo "</pre>";
-
+        */
     ?>
 
     
@@ -245,9 +244,11 @@
         </tr>
     </table>
 
+    <h2>Ejercicio 4: Arrays asociativos</h2>
     <?php
         include "functions/shopAL.php";   
     ?>
+
 
     <table class="tabla">
         <tr>
@@ -277,6 +278,7 @@
        
     </table>
 
+    <h2>Ejercicio 4.1: Arrays asociativos</h2>
     <table class="tabla">
         <tr>
             <th>Nombre</th>
@@ -293,7 +295,7 @@
             <td><?= ucfirst($val["nombre"])?></td>
             <?php
                 if(isset($val["descuento"])){
-                    echo "<td><del>". formatPrice(calculateIVA($val["precio"]))."</del>".formatPrice(calculateIVA($val["precio"]-$val["descuento"]))."</td>";
+                    echo "<td><del>". formatPrice(calculateIVA($val["precio"]))."</del> ".formatPrice(calculateIVA($val["precio"]-$val["descuento"]))."</td>";
                 }else{
                     echo "<td>". formatPrice(calculateIVA($val["precio"]))."</td>";
                 }
