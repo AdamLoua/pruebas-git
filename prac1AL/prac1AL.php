@@ -296,8 +296,14 @@
         ?>  
         <tr>
             <td><?= ucfirst($val["nombre"])?></td>
-            //php if isset descuento....
-            <td><?= formatPrice(calculateIVA($val["precio"]))?></td>
+            <?php
+                if(isset($val["descuento"])){
+                    echo "<td><del>". formatPrice(calculateIVA($val["precio"]))."</del>".formatPrice(calculateIVA($val["precio"]-$val["descuento"]))."</td>";
+                }else{
+                    echo "<td>". formatPrice(calculateIVA($val["precio"]))."</td>";
+                }
+            ?>
+            
             <td class="<?=$val["stock"]>0 && $val["stock"]<=10? "amarillo ":"" ?>
                         <?=$val["stock"]>10 ? "verde ":"" ?> 
                         <?=$val["stock"]==0 ? "rojofondo ":"" ?>
