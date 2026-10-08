@@ -230,18 +230,18 @@
         
     </table>
 
-    <table>
+    <table class="estadisticas">
         <tr>
-            <td>Estadisticas</td>
+            <th>Estadisticas</th>
         </tr>
         <tr>
-            <td>Temperatura mínima:<?= $minima ?>ºC (Día <?= $diamin +1 ?> , Ciudad <?= $ciudadmin +1 ?> )</td>
+            <td>Temperatura mínima: <?= $minima ?>ºC (Día <?= $diamin +1 ?>, Ciudad <?= $ciudadmin +1 ?>)</td>
         </tr>
         <tr>
-            <td>Temperatura máxima: ºC (Día , Ciudad )</td>
+            <td>Temperatura máxima: <?= $maxima ?>ºC (Día <?= $diamax +1 ?>, Ciudad <?= $ciudadmax+1 ?>)</td>
         </tr>
         <tr>
-            <td>Día con mayor variación: ºC (Dia , Ciudad )</td>
+            <td>Día con mayor variación: Día <?=$diamaxvariacion ?> (<?= $maxvariacion ?>ºC de dierencia)</td>
         </tr>
     </table>
 

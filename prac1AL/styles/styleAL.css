@@ -5,7 +5,7 @@
     border-radius: 6px;
 }
 
-td{
+.tabla td{
     padding: 10px;
     border: 1px solid rgb(209, 209, 209);
 }
@@ -47,3 +47,22 @@ td{
 .amarillo{
    background-color: rgb(255, 255, 185);
 }
+
+.estadisticas{
+    padding: 3px;
+    border: 2px solid rgb(150, 150, 150);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+th{
+    text-align: left;
+    border-bottom: 3px solid rgb(70, 67, 67);
+    padding: 10px;
+}
+
+.estadisticas td{
+    border-bottom: 2px dotted grey;
+    padding: 10px 10px;
+}
+
