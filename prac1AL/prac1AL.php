@@ -267,8 +267,12 @@
         ?>  
         <tr>
             <td><?= ucfirst($val["nombre"])?></td>
-            <td><?= formatPrice(($val["precio"])?></td>
-
+            <td><?= formatPrice(calculateIVA($val["precio"]))?></td>
+            <td class="<?=$val["stock"]>0 && $val["stock"]<=10? "amarillo ":"" ?>
+                        <?=$val["stock"]>10 ? "verde ":"" ?> 
+                        <?=$val["stock"]==0 ? "rojofondo ":"" ?>
+            "><?= $val["stock"]?></td>
+            <td><?= $val["categoria"]?></td>
         </tr>
         <?php
             endforeach;
