@@ -25,8 +25,9 @@
             echo "<br>";
         }
     ?>
+
     <br>
-    <br>
+   
 
     <?php
        for($i=0;$i<$rows;$i++){
@@ -48,23 +49,6 @@
         } 
     ?>
 
-    <!--  
-        for($i=0;$i<$rows;$i++){
-            echo "*&nbsp";
-            if($i == $rows-1){
-                echo "<br>";
-                for($j=0;$j<$rows-2;$j++){
-                    echo "*&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp*";
-                    echo "<br>";
-                }    
-            }   
-        }
-        for($i=0;$i<$rows;$i++){
-            echo "*&nbsp";
-        }
-    -->
-
-    <br>
     <br>
 
     <?php
@@ -92,10 +76,9 @@
                 $temperaturas[$i][$j] = rand(-10,45);
             }
         }
+
         /*
-        echo "<pre>";
         var_dump($temperaturas);
-        echo "</pre>";
         */
 
         $maxima = $temperaturas[0][0];
@@ -129,13 +112,9 @@
         }
 
         /*
-        echo "<pre>";
         echo "Temperatura maxima: $maxima (Dia " . ($diamax + 1) . ", Ciudad " . ($ciudadmax + 1) . ")";
-        echo "</pre>";
-
-        echo "<pre>";
+        
         echo "Temperatura minima: $minima (Dia " . ($diamin + 1) . ", Ciudad " . ($ciudadmin + 1) . ")";
-        echo "</pre>";
         */
 
         //temperatura media por ciudad
@@ -143,9 +122,7 @@
         foreach($temperaturas as $ciudad => $valores){
             $media[$ciudad] = round(array_sum($valores)/count($valores),1);
             /*
-            echo "<pre>";
             echo " Ciudad : ". ($ciudad+1) ." --> media : ". $media[$ciudad];
-            echo "</pre>";
             */
 
         }
@@ -176,10 +153,8 @@
             }
         }
 
-        /*
-        echo "<pre>";
-            echo "Dia con mayor variación: Dia $diamaxvariacion $maxvariacion ºC de diferencia";
-        echo "</pre>";
+        /*       
+            echo "Dia con mayor variación: Dia $diamaxvariacion $maxvariacion ºC de diferencia";       
         */
     ?>
 
