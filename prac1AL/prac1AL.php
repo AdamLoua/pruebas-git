@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Práctica</h1>
+
+    <h2>Ejercicio 1: Bucles anidados</h2>
+
     <?php
         $nombre = ord('A') - ord('A') +1;
         $app = ord('L') - ord('A') +1;
@@ -218,6 +221,35 @@
             <td>Día con mayor variación: Día <?=$diamaxvariacion ?> (<?= $maxvariacion ?>ºC de dierencia)</td>
         </tr>
     </table>
+
+    <h2>Ejercicio 3: Funciones</h2>
+
+        <?php
+            include "functions/functionsAL.php";
+
+            //filterByType
+            $array = [11,-23,7,4,5,-6,-73,81,9,-10]; 
+            var_dump(filterByType($array,"positivo"));
+            
+            
+            echo "<br>";
+
+            //calculateStatistics
+            $prueba = [5,10,20,2,6,5,2,4,4,2];
+            var_dump(calculateStatistics($prueba));
+    
+            echo "<br>";
+
+            //analyzeWords   
+            $texto = "Hola me llamo Adam y en quince minutosasdadsads tendré clase de inglés";
+            var_dump(analyzeWords($texto));
+
+            echo "<br>";
+
+            //convertTemperature
+            var_dump(convertTemperature(33, "celsius", "kelvin"));
+
+        ?>
 
     <h2>Ejercicio 4: Arrays asociativos</h2>
     <?php

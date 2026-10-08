@@ -50,11 +50,6 @@
         return $resultado;
     }
 
-    /*
-    $array = [11,-23,7,4,5,-6,-73,81,9,-10]; 
-    var_dump(filterByType($array,"primo"));
-    */
-
     function calculateStatistics(array $numeros):array{
         $asoc = [];
         $media = 0;
@@ -96,10 +91,7 @@
 
         return $asoc;
     }
-    /*
-    $prueba = [5,10,20,2,6,5,2,4,4,2];
-    var_dump(calculateStatistics($prueba));
-    */
+    
     function analyzeWords(String $texto):array{
         $analisis=[];
         $arrayTexto = explode(" ", $texto);
@@ -130,10 +122,7 @@
         
         
     }
-    /*
-    $texto = "Hola me llamo Adam y en quince minutos tendré clase de inglés";
-    var_dump(analyzeWords($texto));
-    */
+    
     function convertTemperature(float $grados, string $origen = "celsius", string $destino = "fahrenheit"):float|bool{
         $valido = false;
         if(($origen === "celsius" || $origen === "fahrenheit" || $origen === "kelvin") && ($destino === "celsius" || $destino === "fahrenheit" || $destino === "kelvin")){
@@ -176,7 +165,5 @@
         }
         return $grados;
     }
-    /*
-    var_dump(convertTemperature(21, "kelvin", "celsius"));
-    */
+    
 ?>
