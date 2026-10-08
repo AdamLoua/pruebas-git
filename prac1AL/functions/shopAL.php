@@ -24,20 +24,20 @@ $productos = [
     function formatPrice(float $precio):string{  
        return sprintf("%.2f €", $precio);
     }
-
+    /*
     $colacao = 899;
     echo "<pre>";
-    var_dump(formatPrice($colacao));
+    var_dump(formatPrice($colacao)); //899.00€
     echo "</pre>";
-
+    */
     function calculateIVA(float $precio, float $iva =0.21):float{
         return $precio*(1+$iva);
     }
-
+    /*
     echo "<pre>";
-    var_dump(calculateIVA(100, 0.19));
+    var_dump(calculateIVA(100, 0.19)); //119
     echo "</pre>";
-
+    */
     function getStock(array $productos):array{
         $existencias = [];
         foreach($productos as $prod => $stock){
@@ -47,9 +47,9 @@ $productos = [
         }
         return $existencias;
     }
-   
+    /*
     echo "<pre>";
-    var_dump(getStock($productos));
+    var_dump(getStock($productos)); //["prod1", "prod2]
     echo "</pre>";
-
+    */
 ?>

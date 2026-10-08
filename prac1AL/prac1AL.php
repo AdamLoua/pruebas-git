@@ -245,6 +245,37 @@
         </tr>
     </table>
 
+    <?php
+        include "functions/shopAL.php";
+        /*muestra una tabla con:
+            • Nombre formateado (primera letra mayúscula)
+            • Precio con IVA
+            • Stock en verde si > 10, amarillo si > 0, rojo si = 0 
+        */   
+    ?>
+
+    <table class="tabla">
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Categoria</th> 
+        </tr>
+
+        <?php
+            foreach($productos as $val):
+        ?>  
+        <tr>
+            <td><?= ucfirst($val["nombre"])?></td>
+            <td><?= formatPrice(($val["precio"])?></td>
+
+        </tr>
+        <?php
+            endforeach;
+        ?>
+       
+    </table>
+
 
     
     
