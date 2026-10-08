@@ -154,6 +154,7 @@
         $ciudadcalurosa = max($media);
 
         //dia con mayor variacion termica
+        $variacion = [];
         for($i=0;$i<7;$i++){
             $maxima = $temperaturas[0][$i];
             $minima = $temperaturas[0][$i];
@@ -167,8 +168,19 @@
             }
             $variacion[$i]= $maxima - $minima;
         }
-        $mayorvariacion = max($variacion);
-        //pes6?
+        $maxvariacion = max($variacion);
+
+        //sacar el indice del dia con mayor variacion
+        for($i=0;$i<7;$i++){
+            if($variacion[$i] == $maxvariacion){
+                $diamaxvariacion = $i+1;
+            }
+        }
+
+        echo "<pre>";
+            echo "Dia con mayor variación: Dia $diamaxvariacion $maxvariacion ºC de diferencia";
+        echo "</pre>";
+
     ?>
 
     
