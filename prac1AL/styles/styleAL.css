@@ -3,6 +3,7 @@
     padding: 3px;
     border: 2px solid black;
     border-radius: 6px;
+    margin-bottom: 30px;
 }
 
 .tabla td{
@@ -53,6 +54,7 @@
     border: 2px solid rgb(150, 150, 150);
     border-radius: 6px;
     font-size: 0.9rem;
+    margin-bottom: 30px;
 }
 
 th{
