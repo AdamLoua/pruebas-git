@@ -142,7 +142,7 @@
         echo "Temperatura minima: $minima (Dia " . ($diamin + 1) . ", Ciudad " . ($ciudadmin + 1) . ")";
         echo "</pre>";
 
-        //temperatura media ciudad
+        //temperatura media por ciudad
         $media = [];
         foreach($temperaturas as $ciudad => $valores){
             $media[$ciudad] = round(array_sum($valores)/count($valores),1);
@@ -151,6 +151,7 @@
             echo "</pre>";
 
         }
+        //ciudad mas calurosa
         $ciudadcalurosa = max($media);
 
         //dia con mayor variacion termica
@@ -227,6 +228,21 @@
             endfor;
         ?>
         
+    </table>
+
+    <table>
+        <tr>
+            <td>Estadisticas</td>
+        </tr>
+        <tr>
+            <td>Temperatura mínima:<?= $minima ?>ºC (Día <?= $diamin +1 ?> , Ciudad <?= $ciudadmin +1 ?> )</td>
+        </tr>
+        <tr>
+            <td>Temperatura máxima: ºC (Día , Ciudad )</td>
+        </tr>
+        <tr>
+            <td>Día con mayor variación: ºC (Dia , Ciudad )</td>
+        </tr>
     </table>
 
 
