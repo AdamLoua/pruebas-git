@@ -46,5 +46,69 @@
     </ul>
     <h3>Ejercicio 3</h3>
 
+    <?php
+        var_dump(operations([15, 6, 8.3, 4],"sum"));
+    ?>
+
+    <h3>Ejercicio 4</h3>
+
+    <?php
+        include "employees.php";
+    ?>
+    <ol>
+        <?php
+            foreach($employees as $valor):
+        ?>
+            
+            <?php
+                if($valor["department"] == "Sales"){
+                echo "<li>";
+                echo "{$valor["name"]} : {$valor["salary"]}";
+                echo "</li>";
+                }
+            ?>
+            
+        <?php
+            endforeach;
+        ?>
+    </ol>
+
+    <?php
+        $sumIT =0;
+        $cantidadIT=0;
+        $sumSales =0;
+        $cantidadSales=0;
+
+        foreach($employees as $valor){
+            if($valor["department"] == "IT"){
+                $sumIT += $valor["salary"];
+                $cantidadIT++;
+            }
+            if($valor["department"] == "Sales"){
+                $sumSales += $valor["salary"];
+                $cantidadSales++;
+            }
+        }
+
+    ?>
+    <p>El salario medio de IT es <?=$sumIT/$cantidadIT?></p>
+    <p>El salario medio de Sales es <?=$sumSales/$cantidadSales?></p>
+
+    <?php
+    $nombres = [];
+    foreach($employees as $valor){
+        if($valor["department"] == "IT"){
+            $nombres[] = $valor["name"];
+        }
+    }
+
+    sort($nombres);
+
+    echo "<ul>";
+        foreach($nombres as $name){
+            echo "<li>".$name."</li>";
+        }
+    echo "</ul>";
+    ?>
 </body>
 </html>

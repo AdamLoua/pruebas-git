@@ -35,7 +35,27 @@
         
     }
 
-    function operations($numbers){
-
+    function operations($numbers, $operation ="order", $incremental = true){
+        //order sum product
+        switch($operation){
+            case "order":
+                if($incremental){
+                    sort($numbers);
+                }else{
+                    rsort($numbers);
+                }
+                return $numbers;
+                break;
+            case "sum":
+                return array_sum($numbers);
+                break;    
+            case "product":
+                $product = 1;
+                foreach($numbers as $num){
+                    $product *=$num;
+                }
+                return $product;
+                break;    
+        }
     }
 ?>
